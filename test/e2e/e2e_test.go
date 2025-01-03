@@ -31,7 +31,7 @@ import (
 )
 
 // namespace where the project is deployed in
-const namespace = "cluster-api-provider-huawei-system"
+const namespace = "caph-system"
 
 // serviceAccountName created for the project
 const serviceAccountName = "cluster-api-provider-huawei-controller-manager"

@@ -21,6 +21,10 @@ import (
 	clusterv1 "sigs.k8s.io/cluster-api/api/v1beta1"
 )
 
+const (
+	ClusterFinalizer = "huaweicloudcluster.infrastructure.cluster.x-k8s.io"
+)
+
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 
@@ -28,6 +32,9 @@ import (
 type HuaweiCloudClusterSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
+
+	// NetworkSpec encapsulates the configuration options for HuaweiCloud network.
+	NetworkSpec NetworkSpec `json:"network,omitempty"`
 
 	// The ECS Region the cluster lives in.
 	Region string `json:"region,omitempty"`
@@ -44,6 +51,9 @@ type HuaweiCloudClusterSpec struct {
 type HuaweiCloudClusterStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
+
+	// +kubebuilder:default=false
+	Ready bool `json:"ready"`
 }
 
 // +kubebuilder:object:root=true

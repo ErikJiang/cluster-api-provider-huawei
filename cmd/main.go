@@ -37,6 +37,7 @@ import (
 
 	infrastructurev1alpha1 "github.com/HuaweiCloudDeveloper/cluster-api-provider-Huawei/api/v1alpha1"
 	"github.com/HuaweiCloudDeveloper/cluster-api-provider-Huawei/internal/controller"
+	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/basic"
 	// +kubebuilder:scaffold:imports
 )
 
@@ -142,9 +143,30 @@ func main() {
 		os.Exit(1)
 	}
 
+	ak := os.Getenv("CLOUD_SDK_AK")
+	if ak == "" {
+		setupLog.Error(err, "missing required environment variable CLOUD_SDK_AK")
+		os.Exit(1)
+	}
+	sk := os.Getenv("CLOUD_SDK_SK")
+	if sk == "" {
+		setupLog.Error(err, "missing required environment variable CLOUD_SDK_SK")
+		os.Exit(1)
+	}
+
+	auth, err := basic.NewCredentialsBuilder().
+		WithAk(ak).
+		WithSk(sk).
+		SafeBuild()
+	if err != nil {
+		setupLog.Error(err, "failed to create credentials")
+		os.Exit(1)
+	}
+
 	if err = (&controller.HuaweiCloudMachineReconciler{
-		Client: mgr.GetClient(),
-		Scheme: mgr.GetScheme(),
+		Client:      mgr.GetClient(),
+		Scheme:      mgr.GetScheme(),
+		Credentials: auth,
 	}).SetupWithManager(mgr); err != nil {
 		setupLog.Error(err, "unable to create controller", "controller", "HuaweiCloudMachine")
 		os.Exit(1)
