@@ -1,0 +1,6 @@
+release:
+  discussion_category_name: General
+  extra_files:
+    - glob: ./templates/*.yaml
+    - glob: ./out/*
+  draft: true
