@@ -380,7 +380,7 @@ clusterctl init --infrastructure linode-linode
 <div id="install-clusterawsadm" class="tabset"><input type="radio" name="install-clusterawsadm" id="install-clusterawsadm-Linux" aria-controls="install-clusterawsadm-Linux" checked><label for="install-clusterawsadm-Linux">Linux</label><input type="radio" name="install-clusterawsadm" id="install-clusterawsadm-macOS" aria-controls="install-clusterawsadm-macOS" ><label for="install-clusterawsadm-macOS">macOS</label><input type="radio" name="install-clusterawsadm" id="install-clusterawsadm-homebrew" aria-controls="install-clusterawsadm-homebrew" ><label for="install-clusterawsadm-homebrew">homebrew</label><input type="radio" name="install-clusterawsadm" id="install-clusterawsadm-Windows" aria-controls="install-clusterawsadm-Windows" ><label for="install-clusterawsadm-Windows">Windows</label><div class="tab-panels">
 <section id="tab-Linux" class="tab-panel">
 <p>Download the latest release; on Linux, type:</p>
-<pre><code>curl -L https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases/download/v2.8.2/clusterawsadm-linux-amd64 -o clusterawsadm
+<pre><code>curl -L https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases/download/v0.0.0/clusterawsadm-linux-amd64 -o clusterawsadm
 </code></pre>
 <p>Make it executable</p>
 <pre><code>chmod +x clusterawsadm
@@ -413,10 +413,10 @@ clusterctl init --infrastructure aws
 </section>
 <section id="tab-macOS" class="tab-panel">
 <p>Download the latest release; on macOs, type:</p>
-<pre><code>curl -L https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases/download/v2.8.2/clusterawsadm-darwin-amd64 -o clusterawsadm
+<pre><code>curl -L https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases/download/v0.0.0/clusterawsadm-darwin-amd64 -o clusterawsadm
 </code></pre>
 <p>Or if your Mac has an M1 CPU (”Apple Silicon”):</p>
-<pre><code>curl -L https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases/download/v2.8.2/clusterawsadm-darwin-arm64 -o clusterawsadm
+<pre><code>curl -L https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases/download/v0.0.0/clusterawsadm-darwin-arm64 -o clusterawsadm
 </code></pre>
 <p>Make it executable</p>
 <pre><code>chmod +x clusterawsadm
@@ -476,7 +476,7 @@ clusterctl init --infrastructure aws
 </section>
 <section id="tab-Windows" class="tab-panel">
 <p>Download the latest release; on Windows, type:</p>
-<pre><code>curl.exe -L https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases/download/v2.8.2/clusterawsadm-windows-amd64.exe -o clusterawsadm.exe
+<pre><code>curl.exe -L https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases/download/v0.0.0/clusterawsadm-windows-amd64.exe -o clusterawsadm.exe
 </code></pre>
 <p>Append or prepend the path of that directory to the <code>PATH</code> environment variable.
 Check version to confirm installation</p>
